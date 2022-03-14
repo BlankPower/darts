@@ -140,10 +140,11 @@ int main(int argc, char *argv[]) {
     int tps = atoi(argv[1]);
     int cds = atoi(argv[2]);
     int nprocs = tps - 1;
-//    if (tps < 2) {
-//        std::cout << "tps should be larger than 1" << std::endl;
-//        return 0;
-//    }
+
+    if (tps < 2) {
+        std::cout << "tps should be larger than 1" << std::endl;
+        return 0;
+    }
 
     ThreadAffinity affin(cds, tps, SPREAD, TPDYNAMIC, MCDYNAMIC);
     if (affin.generateMask()) {

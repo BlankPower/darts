@@ -10,7 +10,7 @@
 
 void linkCD::fire() {
     // only enter once
-#ifdef DEBUG
+#if DEBUG
     std::cout << "procTP::linkCD " << this << std::endl;
 #endif
     auto myProc = static_cast<procTP *>(myTP_);
@@ -25,7 +25,7 @@ void linkCD::fire() {
 
 void initCD::fire() {
     // only enter once
-#ifdef DEBUG
+#if DEBUG
     std::cout << "mainTP::initCD" << std::endl;
 #endif
     auto myMain = static_cast<mainTP *>(myTP_);
@@ -111,7 +111,7 @@ void syncCD::fire() {
     }
 
     if (stepi + 1 >= MAX_ITER) {
-        std::cout << "Iteration complete but still didn't convergence." << std::endl;
+        std::cout << "Iteration completed but still didn't get converged." << std::endl;
         myMain->toSignal->decDep();
         return;
         std::cout << "Should never be here" << std::endl;
